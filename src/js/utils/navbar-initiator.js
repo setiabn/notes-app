@@ -21,16 +21,32 @@ const NavbarInitiator = {
   },
 
   _initialUnauthListener() {
-    const logoutButton = document.getElementById("userLogOut");
-    logoutButton.addEventListener("click", async (event) => {
-      event.preventDefault();
+    // const logoutButton = document.getElementById("userLogOut");
+    // logoutButton.addEventListener("click", async (event) => {
+    //   event.preventDefault();
 
-      try {
-        const response = await AuthApi.logout();
-        window.location.hash = "#/login";
-      } catch (error) {
-        console.error(error);
-      }
+    //   try {
+    //     const response = await AuthApi.logout();
+    //     window.location.hash = "#/login";
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // });
+
+    // Kode dicoding hanya mengatur untuk 1 button, padahal ada 2 button
+
+    const logouts = document.querySelectorAll(".userLogoutClassMultiple");
+    logouts.forEach((btn) => {
+      btn.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        try {
+          const response = await AuthApi.logout();
+          window.location.hash = "#/login";
+        } catch (error) {
+          console.error(error);
+        }
+      });
     });
   },
 

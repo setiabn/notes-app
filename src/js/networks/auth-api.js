@@ -1,12 +1,12 @@
-import API_ENDPOINT from '../globals/api-endpoint';
-import CONFIG from '../globals/config';
+import API_ENDPOINT from "../globals/api-endpoint";
+import CONFIG from "../globals/config";
 
 class AuthApi {
   static async register({ name, email, password }) {
     const response = await fetch(API_ENDPOINT.REGISTER, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, email, password }),
     });
@@ -18,9 +18,9 @@ class AuthApi {
 
   static async login({ email, password }) {
     const response = await fetch(API_ENDPOINT.LOGIN, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
     });
@@ -58,6 +58,7 @@ class AuthApi {
   }
 
   static destroyUserToken(key) {
+    console.log({ key });
     return sessionStorage.removeItem(key);
   }
 }

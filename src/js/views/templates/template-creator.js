@@ -39,7 +39,7 @@ const authenticatedNavListTemplate = (userInfo) => /*html */ `
         <span id="nameUserLogged">${userInfo.name}</span>
       </a>
       <ul class="dropdown-menu dropdown-menu-end">
-        <a id="userLogOut" class="dropdown-item" href="#/logout">Logout</a>
+        <a id="userLogOut" class="userLogoutClassMultiple dropdown-item" href="#/logout">Logout</a>
       </ul>
     </li>
   </ul>
